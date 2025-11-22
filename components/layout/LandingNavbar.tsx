@@ -114,7 +114,7 @@ export default function LandingNavbar({ className = "" }: { className?: string }
 
             {/* CTA */}
             <Link
-              href="/auth/register"
+              href="/auth/select-role"
               className="rounded-md bg-gradient-to-r from-primary-700 to-indigo-700 px-5 py-2 
               text-white text-sm font-medium shadow hover:shadow-md hover:from-primary-800 
               hover:to-indigo-800 transition-all focus:outline-none focus:ring-2 
@@ -199,7 +199,7 @@ export default function LandingNavbar({ className = "" }: { className?: string }
 
           {/* Mobile CTA */}
           <Link
-            href="/auth/register"
+            href="/auth/select-role"
             onClick={() => setDrawerOpen(false)}
             className="mt-4 rounded-md bg-gradient-to-r from-primary-700 to-indigo-700 px-5 py-3 text-center
             text-white text-sm font-medium shadow hover:shadow-md hover:from-primary-800 

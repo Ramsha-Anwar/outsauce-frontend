@@ -39,7 +39,7 @@ export default function LandingPage() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="/auth/register"><Button>Get Started</Button></a>
+                <a href="/auth/select-role"><Button>Get Started</Button></a>
                 <a href="/auth/login"><Button variant="outline">Login</Button></a>
               </div>
 
@@ -412,7 +412,7 @@ With a clean UI, automated workflows, and secure communication features, Outsauc
                 Join freelancers and agencies already using Outsauce to discover quality leads with AI
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="/auth/register">
+                <a href="/auth/select-role">
                   <Button className="bg-blue text-primary-600 border-2 border-white hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
                     Get Started Free
                   </Button>

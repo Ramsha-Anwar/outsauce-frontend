@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
@@ -9,10 +10,18 @@ import { useToast } from '@/components/ui/ToastProvider'
 type Fields = 'name' | 'email' | 'password' | 'confirm'
 
 export default function RegisterPage() {
+  const searchParams = useSearchParams()
+  const role = searchParams.get('role') || ''
   const [values, setValues] = useState({ name: '', email: '', password: '', confirm: '' })
   const [errors, setErrors] = useState<FieldErrors<Fields>>({})
   const [submitted, setSubmitted] = useState(false)
   const toast = useToast()
+
+  const getRoleLabel = () => {
+    if (role === 'freelancer') return 'Freelancer'
+    if (role === 'client') return 'Client'
+    return ''
+  }
 
   const validate = (): boolean => {
     const e: FieldErrors<Fields> = {}
@@ -39,8 +48,10 @@ export default function RegisterPage() {
 
   return (
     <Card>
-      <h2 className="text-lg font-semibold text-gray-900">Create account</h2>
-      <p className="text-sm text-gray-600 mt-1">Get started with Outsauce — it’s free and open source.</p>
+      <h2 className="text-xl font-semibold text-gray-900 text-center">Create account</h2>
+      <p className="text-sm text-gray-600 mt-1 text-center">
+        {role ? `Sign up as a ${getRoleLabel()}` : "Get started with Outsauce — it's free and open source."}
+      </p>
       <form onSubmit={onSubmit} className="mt-6 space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">Name</label>
@@ -84,7 +95,7 @@ export default function RegisterPage() {
         <Button type="submit">Create account</Button>
         {submitted && <p className="text-xs text-emerald-600">Validation passed. Proceed to verify email.</p>}
       </form>
-      <p className="mt-6 text-sm text-gray-600">
+      <p className="mt-6 text-sm text-gray-600 text-center">
         Already have an account? <Link className="text-primary-700 hover:underline" href="/auth/login">Sign in</Link>
       </p>
     </Card>

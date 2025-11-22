@@ -37,8 +37,8 @@ export default function LoginPage() {
 
   return (
     <Card>
-      <h2 className="text-lg font-semibold text-gray-900">Sign in</h2>
-      <p className="text-sm text-gray-600 mt-1">Welcome back. Use your credentials.</p>
+      <h2 className="text-xl font-semibold text-gray-900 text-center">Welcome Back</h2>
+      <p className="text-sm text-gray-600 mt-1 text-center">Sign in to your OutSauce account</p>
       <form onSubmit={onSubmit} className="mt-6 space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">Email</label>
