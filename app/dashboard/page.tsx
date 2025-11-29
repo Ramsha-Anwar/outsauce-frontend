@@ -96,7 +96,7 @@ const Dashboard = () => {
   ]
 
   return (
-    <div className="space-y-4 md:space-y-6">
+    <div className="space-y-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -140,11 +140,10 @@ const Dashboard = () => {
                     <p className="text-sm text-gray-500 truncate">{lead.email}</p>
                   </div>
                   <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
-                    <span className={`px-2 py-1 text-xs font-medium rounded-full whitespace-nowrap ${
-                      lead.status === 'Hot' ? 'bg-red-100 text-red-800' :
-                      lead.status === 'Warm' ? 'bg-orange-100 text-orange-800' :
-                      'bg-gray-100 text-gray-800'
-                    }`}>
+                    <span className={`px-2 py-1 text-xs font-medium rounded-full whitespace-nowrap ${lead.status === 'Hot' ? 'bg-red-100 text-red-800' :
+                        lead.status === 'Warm' ? 'bg-orange-100 text-orange-800' :
+                          'bg-gray-100 text-gray-800'
+                      }`}>
                       {lead.status}
                     </span>
                     <span className="font-semibold text-gray-900 whitespace-nowrap">{lead.value}</span>
@@ -185,7 +184,7 @@ const Dashboard = () => {
             <p className="text-sm sm:text-base text-gray-500 text-center px-4">Chart placeholder - Integration with charts library needed</p>
           </div>
         </Card>
-        
+
         <Card>
           <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-4 md:mb-6">Conversion Funnel</h2>
           <div className="h-48 sm:h-56 md:h-64 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg flex items-center justify-center border border-purple-100">

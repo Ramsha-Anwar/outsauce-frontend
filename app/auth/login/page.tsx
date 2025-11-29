@@ -1,18 +1,23 @@
 "use client"
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import { isEmail, isStrongPassword, FieldErrors } from '@/lib/validators'
 import { useToast } from '@/components/ui/ToastProvider'
+import { api, getErrorMessage } from '@/lib/api'
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 
 type Fields = 'email' | 'password'
 
 export default function LoginPage() {
   const [values, setValues] = useState({ email: '', password: '' })
+  const [showPassword, setShowPassword] = useState(false)
   const [errors, setErrors] = useState<FieldErrors<Fields>>({})
   const [submitted, setSubmitted] = useState(false)
   const toast = useToast()
+  const router = useRouter()
 
   const validate = (): boolean => {
     const e: FieldErrors<Fields> = {}
@@ -22,17 +27,22 @@ export default function LoginPage() {
     return Object.keys(e).length === 0
   }
 
-  const onSubmit = (ev: React.FormEvent) => {
+  const onSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault()
     if (!validate()) {
       toast.error('Please fix the errors and try again')
       return
     }
     const id = toast.loading('Signing you in...')
-    setTimeout(() => {
-      toast.update(id, { type: 'success', message: 'Signed in successfully' })
+    try {
+      await api.auth.login(values.email, values.password)
+      toast.dismiss(id)
       setSubmitted(true)
-    }, 900)
+      router.push('/dashboard')
+    } catch (error) {
+      toast.dismiss(id)
+      toast.error(getErrorMessage(error))
+    }
   }
 
   return (
@@ -52,12 +62,25 @@ export default function LoginPage() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700">Password</label>
-          <input
-            type="password"
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-300"
-            value={values.password}
-            onChange={(e) => setValues(v => ({ ...v, password: e.target.value }))}
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-300 pr-10"
+              value={values.password}
+              onChange={(e) => setValues(v => ({ ...v, password: e.target.value }))}
+            />
+            <button
+              type="button"
+              className="absolute inset-y-0 right-0 flex items-center pr-3 mt-1 text-gray-400 hover:text-gray-600"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <EyeSlashIcon className="h-5 w-5" />
+              ) : (
+                <EyeIcon className="h-5 w-5" />
+              )}
+            </button>
+          </div>
           {errors.password && <p className="mt-1 text-xs text-red-600">{errors.password}</p>}
         </div>
         <div className="flex items-center justify-between text-sm">
