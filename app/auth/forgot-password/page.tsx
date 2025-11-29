@@ -25,7 +25,7 @@ export default function ForgotPasswordPage() {
     }
     const id = toast.loading('Sending reset link...')
     setTimeout(() => {
-      toast.update(id, { type: 'success', message: 'Reset link sent if the email exists.' })
+      toast.dismiss(id)
       setSubmitted(true)
     }, 900)
   }
