@@ -5,11 +5,13 @@ import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import { isStrongPassword, FieldErrors } from '@/lib/validators'
 import { useToast } from '@/components/ui/ToastProvider'
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 
 type Fields = 'password' | 'confirm'
 
 export default function ResetPasswordPage() {
   const [values, setValues] = useState({ password: '', confirm: '' })
+  const [showPassword, setShowPassword] = useState(false)
   const [errors, setErrors] = useState<FieldErrors<Fields>>({})
   const [submitted, setSubmitted] = useState(false)
   const toast = useToast()
@@ -38,12 +40,25 @@ export default function ResetPasswordPage() {
       <form onSubmit={onSubmit} className="mt-6 space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">New password</label>
-          <input
-            type="password"
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-300"
-            value={values.password}
-            onChange={(e) => setValues(v => ({ ...v, password: e.target.value }))}
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-300 pr-10"
+              value={values.password}
+              onChange={(e) => setValues(v => ({ ...v, password: e.target.value }))}
+            />
+            <button
+              type="button"
+              className="absolute inset-y-0 right-0 flex items-center pr-3 mt-1 text-gray-400 hover:text-gray-600"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <EyeSlashIcon className="h-5 w-5" />
+              ) : (
+                <EyeIcon className="h-5 w-5" />
+              )}
+            </button>
+          </div>
           {errors.password && <p className="mt-1 text-xs text-red-600">{errors.password}</p>}
         </div>
         <div>
