@@ -222,7 +222,7 @@ export default function LandingPage() {
                 {
                   icon: <BarChart3 className="w-6 h-6" />,
                   title: 'Salary & Market Trend Predictor',
-                  desc: 'Get real-time insights on market rates and pricing trends to stay competitive.'
+                  desc: 'Get real-time insights on market rates and trends to stay competitive.'
                 },
                 {
                   icon: <MessageSquare className="w-6 h-6" />,

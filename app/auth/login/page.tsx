@@ -35,10 +35,21 @@ export default function LoginPage() {
     }
     const id = toast.loading('Signing you in...')
     try {
-      await api.auth.login(values.email, values.password)
+      const response = await api.auth.login(values.email, values.password)
       toast.dismiss(id)
       setSubmitted(true)
-      router.push('/dashboard')
+
+      // Redirect based on the role returned from our mock backend
+      if (response.role === 'freelancer') {
+        localStorage.setItem('outsauce_session', JSON.stringify({
+          name: response.name,
+          email: values.email,
+          role: response.role
+        }))
+        router.push('/freelancer/dashboard')
+      } else {
+        router.push('/dashboard')
+      }
     } catch (error) {
       toast.dismiss(id)
       toast.error(getErrorMessage(error))
@@ -87,9 +98,7 @@ export default function LoginPage() {
           <Link href="/auth/forgot-password" className="text-primary-700 hover:underline">Forgot password?</Link>
         </div>
         <Button type="submit">Sign in</Button>
-        {submitted && (
-          <p className="text-xs text-emerald-600">Validation passed. Hook up your API next.</p>
-        )}
+
       </form>
       <p className="mt-6 text-sm text-gray-600">
         New here? <Link className="text-primary-700 hover:underline" href="/auth/register">Create an account</Link>
