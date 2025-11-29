@@ -25,7 +25,7 @@ export default function LandingPage() {
 
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <section id = "hero" className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <section id="hero" className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700 ring-1 ring-primary-200">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary-600" />
@@ -112,86 +112,91 @@ export default function LandingPage() {
         </div>
 
         {/* About Us (NEW — replacing comparison section) */}
-<section id="about" className="mt-20 bg-gradient-to-b from-gray-50 to-white py-16">
-<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-primary-700 bg-clip-text text-transparent">
-About Outsauce
-</h2>
-<p className="mt-6 text-lg text-gray-600 leading-relaxed">
-Outsauce is an AI-powered lead generation platform built to simplify how freelancers and clients connect. Our system intelligently gathers profiles from major marketplaces and ranks them using modern AI matching algorithms.
-</p>
-<p className="mt-4 text-lg text-gray-600 leading-relaxed">
-With a clean UI, automated workflows, and secure communication features, Outsauce helps users save time, improve accuracy, and make smarter decisions — all while staying fully open-source.
-</p>
-</div>
-</section>        
-{/* Why Choose Outsauce Section */}
-<section id="why-outsauce" className="mt-20 bg-gradient-to-b from-white to-blue-50 py-20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="about" className="mt-20 bg-gradient-to-b from-gray-50 to-white py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-primary-700 bg-clip-text text-transparent">
+              About Outsauce
+            </h2>
+            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+              Outsauce is an AI-powered lead generation platform built to simplify how freelancers and clients connect. Our system intelligently gathers profiles from major marketplaces and ranks them using modern AI matching algorithms.
+            </p>
+            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+              With a clean UI, automated workflows, and secure communication features, Outsauce helps users save time, improve accuracy, and make smarter decisions — all while staying fully open-source.
+            </p>
+            <div className="mt-8">
+              <Link href="/about">
+                <Button variant="outline">Learn More About Us</Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+        {/* Why Choose Outsauce Section */}
+        <section id="why-outsauce" className="mt-20 bg-gradient-to-b from-white to-blue-50 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    {/* Heading */}
-    <div className="text-center mb-14">
-      <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-primary-700 bg-clip-text text-transparent">
-        Why Choose Outsauce?
-      </h2>
-      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-        Outsauce helps you discover, filter, and manage high-quality leads with powerful AI automation —
-        fast, accurate, and fully open-source.
-      </p>
-    </div>
+            {/* Heading */}
+            <div className="text-center mb-14">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-primary-700 bg-clip-text text-transparent">
+                Why Choose Outsauce?
+              </h2>
+              <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+                Outsauce helps you discover, filter, and manage high-quality leads with powerful AI automation —
+                fast, accurate, and fully open-source.
+              </p>
+            </div>
 
-    {/* Value Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {/* Card 1 */}
-      <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
-        <h3 className="text-lg font-semibold text-gray-900">⚡ Faster Lead Discovery</h3>
-        <p className="mt-2 text-gray-600">
-          Quickly find top freelancers from multiple platforms with automated profile sourcing.
-        </p>
-      </div>
+            {/* Value Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Card 1 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
+                <h3 className="text-lg font-semibold text-gray-900">⚡ Faster Lead Discovery</h3>
+                <p className="mt-2 text-gray-600">
+                  Quickly find top freelancers from multiple platforms with automated profile sourcing.
+                </p>
+              </div>
 
-      {/* Card 2 */}
-      <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
-        <h3 className="text-lg font-semibold text-gray-900">🎯 Higher Match Accuracy</h3>
-        <p className="mt-2 text-gray-600">
-          AI ranking ensures only the most relevant profiles rise to the top — no manual sorting.
-        </p>
-      </div>
+              {/* Card 2 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
+                <h3 className="text-lg font-semibold text-gray-900">🎯 Higher Match Accuracy</h3>
+                <p className="mt-2 text-gray-600">
+                  AI ranking ensures only the most relevant profiles rise to the top — no manual sorting.
+                </p>
+              </div>
 
-      {/* Card 3 */}
-      <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
-        <h3 className="text-lg font-semibold text-gray-900">🔓 No Vendor Lock-In</h3>
-        <p className="mt-2 text-gray-600">
-          Self-host or run locally. You control your data, settings, and workflow without restrictions.
-        </p>
-      </div>
+              {/* Card 3 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
+                <h3 className="text-lg font-semibold text-gray-900">🔓 No Vendor Lock-In</h3>
+                <p className="mt-2 text-gray-600">
+                  Self-host or run locally. You control your data, settings, and workflow without restrictions.
+                </p>
+              </div>
 
-      {/* Card 4 */}
-      <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
-        <h3 className="text-lg font-semibold text-gray-900">💙 100% Open-Source</h3>
-        <p className="mt-2 text-gray-600">
-          Built under MIT license — transparent, flexible, and community-driven.
-        </p>
-      </div>
+              {/* Card 4 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
+                <h3 className="text-lg font-semibold text-gray-900">💙 100% Open-Source</h3>
+                <p className="mt-2 text-gray-600">
+                  Built under MIT license — transparent, flexible, and community-driven.
+                </p>
+              </div>
 
-      {/* Card 5 */}
-      <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
-        <h3 className="text-lg font-semibold text-gray-900">🤖 AI-Powered Ranking</h3>
-        <p className="mt-2 text-gray-600">
-          Intelligent scoring evaluates skills, reviews, rates, and experience to surface the best talent.
-        </p>
-      </div>
+              {/* Card 5 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
+                <h3 className="text-lg font-semibold text-gray-900">🤖 AI-Powered Ranking</h3>
+                <p className="mt-2 text-gray-600">
+                  Intelligent scoring evaluates skills, reviews, rates, and experience to surface the best talent.
+                </p>
+              </div>
 
-      {/* Card 6 */}
-      <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
-        <h3 className="text-lg font-semibold text-gray-900">👥 Made for Everyone</h3>
-        <p className="mt-2 text-gray-600">
-          Built for freelancers, agencies, startups, and small businesses — simple and effective.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+              {/* Card 6 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur border border-blue-100 p-6 shadow-sm hover:shadow-md transition-all">
+                <h3 className="text-lg font-semibold text-gray-900">👥 Made for Everyone</h3>
+                <p className="mt-2 text-gray-600">
+                  Built for freelancers, agencies, startups, and small businesses — simple and effective.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
         {/* Key Features */}
@@ -333,7 +338,7 @@ With a clean UI, automated workflows, and secure communication features, Outsauc
         </section>
 
         {/* Use Cases */}
-        <section  className="mt-20 scroll-mt-24">
+        <section className="mt-20 scroll-mt-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-semibold text-gray-900 text-center">Who It's Built For</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -382,7 +387,7 @@ With a clean UI, automated workflows, and secure communication features, Outsauc
           </div>
         </section>
 
-        
+
         {/* Tech Stack / Open Source */}
         <section className="mt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -437,9 +442,9 @@ With a clean UI, automated workflows, and secure communication features, Outsauc
                   <p className="text-sm text-gray-600 mt-1">We'd love to hear from you. Reach out anytime.</p>
                 </div>
                 <div className="flex gap-3">
-                  <a href="mailto:hello@outsauce.ai" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline">Contact us</Button>
-                  </a>
+                  <Link href="/contact">
+                    <Button variant="outline">Contact Us</Button>
+                  </Link>
                 </div>
               </div>
             </Card>
@@ -466,10 +471,10 @@ With a clean UI, automated workflows, and secure communication features, Outsauc
             </div>
 
             <div className="mt-6 md:mt-0 flex items-center gap-6 text-xs text-white">
-              <a className="hover:text-white transition-colors" href="#features">Features</a>
-              <a className="hover:text-white transition-colors" href="#use-cases">Use Cases</a>
-              <a className="hover:text-white transition-colors" href="#integrations">Integrations</a>
-              <a className="hover:text-white transition-colors" href="#contact">Contact</a>
+              <Link className="hover:text-white transition-colors" href="/about">About</Link>
+              <Link className="hover:text-white transition-colors" href="/privacy">Privacy</Link>
+              <Link className="hover:text-white transition-colors" href="/terms">Terms</Link>
+              <Link className="hover:text-white transition-colors" href="/contact">Contact</Link>
             </div>
 
             <div className="mt-6 md:mt-0 text-xs text-blue-100">
